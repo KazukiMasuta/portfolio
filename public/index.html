@@ -1,89 +1,255 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.1.3/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.1.3/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.1.3/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&subset=japanese" rel="stylesheet">
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <!-- SlickNav -->
+  <link rel="stylesheet" href="css/slicknav.css"/>
+  <script src="js/jquery.slicknav.min.js"></script>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
+  <!-- iTyped.js -->
+  <script src="https://unpkg.com/ityped@1.0.2"></script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header id="home"><!-- Start Header -->
+      <div class="header_container">
+        <h1><a href="#"><img src="images/profile.png" alt=""></a></h1>
+
+        <nav id="gnav">
+          <ul class="gnav_list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#product">Product</a></li>
+            <li><a href="#skill">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header><!-- End Header -->
+
+
+    <section id="main_visual">
+      <div class="main_container">
+        <h1>Thanks For Your Coming My Portfolio Site</h1>
+      </div>
+    </section>
+
+    <section id="profile" class="fadein"><!-- Start profile -->
+      <div class="profile_container">
+        <h2 class="heading">Profile</h2>
+
+        <div class="profile_content">
+          <img src="./images/profile.png" alt="">
+          <p class="profile_content_txt">
+            東京都立大学に通っている大学3年生のM.Kazukiです。<br><br>
+            2023年4月からWebエンジニアとして働くことを目的に活動中。<br>
+            独学ながらも2019年からコツコツとプログラミングを学んでいます。<br><br>
+            サーバーサイド言語のPythonを主に触っていますが、<br>
+            いろんな環境に順応するために、様々な言語に挑戦しています。<br>
+            PythonフレームワークのDjangoを使ってサービス開発してみたりしてます。
+          </p>
+        </div>
+      </div>
+    </section><!-- End profile -->
+
+    <section id="experience" class="fadein"><!-- Start experience -->
+      <div class="experience_container">
+        <h2 class="heading">Experience</h2>
+
+        <ul class="timeline">
+            <li>
+              <p class="timeline-date">2020年4月</p>
+              <div class="timeline-content">
+                <p>独学でのプログラミング学習を決意。</p>
+                <p>GMOが提供するサービス <a href="https://suzuri.jp/"><span>suzuri</span></a> に感動し、webエンジニアを志す。</p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">2020年11月</p>
+              <div class="timeline-content">
+                <p>友人とサービス開発に挑戦する</p>
+                <p>PythonフレームワークDjangoを使って自身が通う学校の掲示板サイトを制作し出す。</p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">2021年3月</p>
+              <div class="timeline-content">
+                <p>ユーザー視点を意識したサービス開発に苦悩</p>
+                <p>実装できる範囲でニーズを達成することの難しさに挫折</p>
+              </div>
+            </li>
+            <li>
+                <p class="timeline-date">2021年５月</p>
+                <div class="timeline-content">
+                  <p>webサービス[Ciss]の完成</p>
+                  <p>デプロイできるほどに完成できた。これを武器に就活を意識しだす。</p>
+                </div>
+              </li>
+            <li>
+                <p class="timeline-date">2021年9月</p>
+                <div class="timeline-content">
+                  <p>株式会社NEOJAPANのインターンに参加</p>
+                  <p>他のインターン参加者に比べスキルだけでなく足りないものが多いことがわかった。</p>
+                </div>
+            </li>
+
+        </ul>
+      </div>
+    </section><!-- End experience -->
+
+    <section id="product" class="fadein"><!-- Start product -->
+      <h2 class="heading">Product</h2>
+
+
+      <div class="product_lists">
+        <ul>
+          <li>
+            <a href="http://tmuciss.com/">
+              <p><img src="images/cissLogo.png" alt="" width="100%"></p>
+              <p>都立大生内で大学生活に関する情報を共有できるサービス</p>
+              <p><span class="tool">#Python</span><span class="tool">#Django</span><span class="tool">#bootstrap</span></p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section><!-- End product -->
+
+    <section id="skill" class="fadein"><!-- Start skill -->
+      <div class="skill_container">
+        <h2 class="heading">Skills</h2>
+        <div class="skill_content">
+            <div class="skill_content_item">
+                <h3>フロントサイド</h3>
+                <p>
+                    HTML, CSS, JQuery, Illustrator, bootstrap, WordPress
+                </p>
+            </div>
+            <div class="skill_content_item">
+                <h3>バックエンド</h3>
+                <p>
+                    PHP, Python, Django, Java,
+                </p>
+            </div>
+        </div>
+      </div>
+    </section><!-- End skill -->
+
+    <section id="contact" class="fadein"><!-- Start Contact -->
+      <div class="contact_container">
+        <h2 class="heading">Contact</h2>
+
+        <div class="contact_content">
+          <div class="contact_content_list">
+            <div class="contact_content_item">
+              <a href="https://github.com/KazukiMasuta" target="_blank">
+                <i class="fab fa-github fa-2x faa-bounce animated"></i>
+                <p>Github</p>
+              </a>
+            </div>
+            <div class="contact_content_item">
+              <a href="https://twitter.com/mAsuo_pro" target="_blank">
+                <i class="fab fa-twitter fa-2x faa-bounce animated"></i>
+                <p>Twitter</p>
+              </a>
+            </div>
+            <div class="contact_content_item">
+                <a href="https://www.instagram.com/chome_pipi" target="_blank">
+                  <i class="fab fa-instagram fa-2x faa-bounce animated"></i>
+                  <p>Instagram</p>
+                </a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact -->
+
+    <!-- <p id="page-top"><a href="#wrap">▲</a></p> -->
+  </div><!-- End Wrap -->
+
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    //スムーズスクロール
+    jQuery(function(){
+      jQuery('a[href^=#]').click(function() {
+        var speed = 400; // ミリ秒
+        var href= jQuery(this).attr("href");
+        var target = jQuery(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        jQuery('body,html').animate({scrollTop:position}, speed, 'swing');
+        return false;
       });
-    </script>
-  </body>
+    });
+
+
+    jQuery(function($){
+      $('#gnav').slicknav();
+      $('.gnav_list').slicknav({
+        label: '',
+        prependTo:'',
+        duration: 800,
+        easingOpen: "easeOutBounce",
+      });
+    });
+
+    $(function() {
+        var topBtn = $('#page-top');
+        topBtn.hide();
+        //スクロールが100に達したらボタン表示
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 2000) {
+                topBtn.fadeIn();
+            } else {
+                topBtn.fadeOut();
+            }
+        });
+        //スクロールしてトップ
+        topBtn.click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 500);
+            return false;
+        });
+    });
+
+    jQuery(function(){
+      jQuery(window).scroll(function (){
+          jQuery('.fadein').each(function(){
+              var elemPos = jQuery(this).offset().top;
+              var scroll = jQuery(window).scrollTop();
+              var windowHeight = jQuery(window).height();
+              if (scroll > elemPos - windowHeight + 0){
+                  jQuery(this).addClass('scrollin');
+              }
+          });
+      });
+      jQuery(window).scroll();
+    });
+
+  })
+  </script>
+</body>
 </html>

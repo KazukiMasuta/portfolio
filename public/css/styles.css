@@ -1,0 +1,580 @@
+@charset "UTF-8";
+
+/* リセットCSS */
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    color: #666;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino kaku Gothic ProN", MyYuGothicM, Meiryo, sans-serif;
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ------------------------
+Common
+--------------------------- */
+.wrap {
+    overflow: hidden; /* レスポンシブ時の余白を消す */
+}
+h1 {
+    font-size: 42px;
+    font-family: 'Bangers', cursive;
+}
+h2 {
+    color: #000;
+}
+h3 {
+    font-size: 24px;
+}
+a {
+    text-decoration: none;
+    color: #363636;
+}
+a:hover img {
+    opacity: 0.85;
+}
+li {
+    list-style: none;
+}
+.heading {
+    font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+/* ------------------------
+Header
+--------------------------- */
+/* .wrap {
+} */
+header {
+    border-bottom: 1px solid #666;
+    box-shadow: 1px 1px #e3e7f1;
+}
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+#gnav {
+    display: flex;
+}
+.gnav_list {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+.gnav_list li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.gnav_list li a {
+    margin: 0 auto;
+}
+.gnav_list li a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------
+Home
+--------------------------- */
+#home h1 img {
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+}
+.main_visual_wrapper {
+    position: relative;
+}
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+#main_visual {
+    width: 100%;
+	height: 100vh;
+	font-family: "Exo", sans-serif;
+	color: #fff;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+.main_container {
+	width: 100%;
+	position: absolute;
+	top: 35%;
+    text-align: center;
+    margin-top: 70px;
+}
+
+h1 {
+	font-weight: 300;
+}
+
+.main_container h3 {
+	color: #eee;
+	font-weight: 100;
+}
+
+.main_container h5 {
+	color:#eee;
+	font-weight:300;
+}
+@media screen and (max-width: 800px) {
+    #main_visual {
+        font-family: "Exo",'Party LET',sans-serif;
+    }
+    #home {
+        display: none;
+    }
+}
+
+/* ------------------------
+Profile
+--------------------------- */
+#profile {
+    line-height: 22px;
+    letter-spacing: 1px;
+    padding: 140px 0;
+}
+.profile_container {
+    width: 80%;
+    margin: 0 auto;
+}
+.profile_content {
+    display: flex;
+    justify-content: space-around;
+}
+.profile_content img {
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+}
+.profile_content_txt {
+    font-size: 18px;
+    padding: 0 50px;
+    text-align: left;
+}
+@media screen and (max-width: 800px) {
+    #profile {
+        padding: 80px 0;
+    }
+    .profile_container {
+        width: 90%;
+    }
+    .profile_content_txt {
+        font-size: 16px;
+        text-align: left;
+        padding: 50px 20px 0;
+    }
+    .profile_content {
+        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile_content img {
+        border-radius: 50%;
+        width: 50%;
+        height: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* ------------------------
+Experience
+--------------------------- */
+#experience {
+    padding: 140px 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #f2eee5;
+    border-radius: 10px;
+}
+.timeline {
+    width: 60%;
+    margin: 0 auto;
+}
+.timeline .timeline-content p:first-child {
+    font-size: 20px;
+    font-weight: 600;
+}
+.timeline .timeline-content p:nth-child(2) {
+    padding-top: 10px;
+}
+.timeline > li {
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+}
+.timeline-date {
+    width: 110px;
+    float: left;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.timeline-content {
+    width: 80%;
+    float: left;
+    border-left: 3px #e5e5d1 solid;
+    padding: 20px 0 0 40px;
+}
+.timeline-content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #494ca2;
+    position: absolute;
+    left: 106px;
+    top: 24px;
+    border-radius: 100%;
+}
+.timeline-content span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 120%;
+    color: #666;
+}
+
+@media ( max-width : 950px ){
+    .timeline {
+        width: 90%;
+        /* height: 700px; */
+        overflow-y: auto;
+        list-style: none;
+    }
+    .timeline-date {
+        width: 25%;
+        padding-right: 0;
+    }
+    .timeline-content {
+        width: 75%;
+        padding: 20px 0 0 20px !important;
+    }
+    .timeline-content p {
+        font-size: 14px !important;
+    }
+    .timeline-content p:first-child {
+        font-weight: 600;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .timeline > li {
+        border-bottom: 1px solid #666;
+        /* margin-bottom: 20px; */
+        padding-bottom: 20px;
+    }
+    .timeline-content:before {
+        display: none;
+    }
+    .timeline-content {
+        border-left: none;
+        padding: 20px 0 0 70px;
+    }
+}
+
+
+/* ------------------------
+product
+--------------------------- */
+#product {
+    line-height: 20px;
+    padding: 140px 0;
+}
+#product .product_lists {
+    width: 80%;
+    margin: 0 auto;
+}
+#product .product_lists ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#product .product_lists li {
+    width: 48%;
+}
+#product .product_lists li img {
+    border: 1px solid #666;
+}
+#product .product_lists ul li:nth-child(n+3) {
+    margin-top: 60px;
+}
+#product .product_lists ul li p:nth-child(2) {
+    margin-top: 6px;
+}
+#product .product_lists ul li p:nth-child(3) {
+    margin-top: 10px;
+}
+#product .product_lists ul li p:nth-child(3) .tool {
+    display: inline-block;
+    background-color: #f1f5f8;
+    border-radius: 9999px;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    font-size: .875rem;
+    font-weight: 600;
+    color: #606f7b;
+    margin-right: .25rem;
+    margin-top: .25rem;
+
+}
+@media screen and (max-width: 800px) {
+    #product {
+        padding: 80px 0;
+    }
+    #product .product_lists {
+        width: 90%;
+    }
+    #product .product_lists ul li {
+        list-style: none;
+        width: 100%;
+        margin: 0 auto;
+    }
+    #product .product_lists ul li:not(:first-child) {
+        margin-top: 30px;
+    }
+}
+
+/* ------------------------
+skill
+--------------------------- */
+#skill {
+    padding: 140px 0;
+}
+.skill_container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+}
+.skill_content {
+    width: 80%;
+    margin: 0 auto;
+}
+.skill_content_item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px #ccc;
+    padding: 20px;
+}
+.skill_content_item:not(:first-child) {
+    margin-top: 30px;
+}
+.skill_content_item p {
+    line-height: 22px;
+    letter-spacing: 1.8px;
+    margin-top: 10px;
+}
+@media screen and (max-width: 800px) {
+    #skill {
+        padding: 80px 0;
+    }
+    .skill_content {
+        display: block;
+    }
+    .skill_content {
+        width: 100%;
+    }
+    .skill_content_item:not(:first-child) {
+        margin-top: 50px;
+    }
+    .skill_content_item p {
+        padding: 0 20px;
+    }
+}
+
+/* ------------------------
+Contact
+--------------------------- */
+#contact {
+    padding: 80px 0 30px;
+}
+#contact h2.heading {
+    padding-bottom: 30px;
+}
+.contact_container {
+    width: 90%;
+    margin: 0 auto;
+}
+.contact_content {
+    text-align: center;
+}
+.contact_content_list {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 20px 50px;
+}
+.contact_content_item p {
+    padding-top: 20px;
+}
+.contact_content > p {
+    line-height: 22px;
+    letter-spacing: 1.8px;
+}
+@media screen and (max-width: 800px) {
+    .contact_content > p {
+        padding: 0 20px;
+    }
+    .contact_content_item p {
+        display: none;
+    }
+}
+
+/* Page Top */
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 77%;
+}
+#page-top a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    width: 40px;
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+#page-top a:hover {
+    text-decoration: none;
+    background: #999;
+}
+
+/* フェードイン */
+.fadein {
+    opacity : 0;
+    transform : translate(0, 200px);
+    transition:all 0.8s;
+    display:block;
+    margin:60px auto;
+    text-align:center;
+}
+.fadein.scrollin {
+    opacity : 1;
+    transform : translate(0, 0);
+}
